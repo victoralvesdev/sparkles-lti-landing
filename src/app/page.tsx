@@ -1,103 +1,164 @@
-import Image from "next/image";
+"use client";
+import { BackgroundBeamsDemo } from "@/components/ui/background-beams-demo";
+import { SparklesCore } from "@/components/ui/sparkles";
+import { FeaturesCards } from "@/components/ui/features-cards";
+import AnimatedTestimonialsDemo from "@/components/ui/animated-testimonials-demo";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import { AccordionDemo } from "@/components/ui/accordion-demo";
+import { Cta11Demo } from "@/components/ui/cta11-demo";
+import { FooterDemo } from "@/components/ui/footer-demo";
+import { GlowLights } from "@/components/ui/glow-lights";
+import { FloatingParticles } from "@/components/ui/floating-particles";
+import { PricingCardBasic } from "@/components/ui/pricing-card-demo";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <main className="min-h-screen flex flex-col relative" style={{ overflow: "hidden" }}>
+      {/* Hero Section */}
+      <section id="hero" className="h-screen relative">
+        {/* Adicionar luzes de fundo ao hero */}
+        <GlowLights 
+          count={12} 
+          colors={["#924ACE", "#7B3EB6", "#A75EE0", "#6431A3"]} 
+          maxSize={900} 
+          minSize={400} 
+          className="z-0 opacity-30" 
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <BackgroundBeamsDemo />
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Features Section */}
+      <section id="features" className="py-16 md:py-20 bg-[#1C1D24] relative">
+        {/* Glow lights in the background */}
+        <GlowLights count={8} maxSize={600} minSize={300} className="z-0 opacity-30" />
+        
+        {/* Floating objects */}
+        <FloatingParticles count={30} color="#924ACE" maxSize={15} minSize={4} className="z-0" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-white">
+            Como funciona o <span className="text-[#924ACE]">L.T.I</span>
+          </h2>
+          <FeaturesCards />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="relative py-12 overflow-hidden bg-[#131419]">
+        <FloatingParticles
+          className="absolute inset-0 z-0"
+          count={20}
+          color="#924ace"
+          minSize={2}
+          maxSize={6}
+        />
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-white">
+              Investimento
+            </h2>
+            <p className="text-xl text-[#E0E0E0]/70 max-w-3xl mx-auto">
+              Transforme sua carreira com um investimento que retorna em oportunidades
+            </p>
+          </div>
+          <PricingCardBasic />
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-5 bg-[#1c1d24] relative">
+        {/* Background Grid */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden">
+          
+        </div>
+        
+        {/* Adicionar mais luzes de fundo ao testimonials */}
+        <GlowLights 
+          count={4} 
+          colors={["#924ACE", "#7B3EB6"]} 
+          maxSize={800} 
+          minSize={400} 
+          className="z-0 opacity-20" 
+        />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-white">
+            O que <span className="text-[#924ACE]">dizem</span> nossos alunos sobre o <span className="text-[#924ACE]">L.T.I</span>
+          </h2>
+          <div className="max-w-6xl mx-auto">
+            <AnimatedTestimonialsDemo />
+          </div>
+        </div>
+        
+        {/* Background effect for testimonials */}
+        <div className="absolute inset-0 -z-10 pointer-events-none opacity-40">
+          <BackgroundGradientAnimation />
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-16 md:py-20 bg-[#271e35] relative">
+        {/* Glow lights for FAQ section */}
+        <GlowLights 
+          count={6} 
+          colors={["#924ACE", "#6C31A3", "#A864E8"]} 
+          maxSize={700} 
+          minSize={400} 
+          className="z-0 opacity-20" 
+        />
+        
+        {/* Floating objects for FAQ section - different style */}
+        <FloatingParticles 
+          count={25} 
+          color="#A864E8" 
+          maxSize={20} 
+          minSize={5} 
+          className="z-0" 
+        />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-white">
+            Perguntas <span className="text-[#924ACE]">Frequentes</span>
+          </h2>
+          <div className="max-w-3xl mx-auto">
+            <AccordionDemo />
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section id="cta" className="w-full bg-[#1c1d24] flex items-center justify-center">
+        <div className="relative w-full max-w-7xl mx-auto">
+          {/* Blur blob in the background */}
+          <div 
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-purple-600/20 blur-[120px] -z-10 pointer-events-none"
+            aria-hidden="true"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          
+          {/* Adicionar luzes de fundo ao CTA */}
+          <GlowLights 
+            count={4} 
+            colors={["#924ACE", "#6431A3"]} 
+            maxSize={500} 
+            minSize={200} 
+            className="z-0 opacity-25" 
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          
+          {/* Adicionar algumas partículas também */}
+          <FloatingParticles 
+            count={15} 
+            color="#924ACE" 
+            maxSize={10} 
+            minSize={3} 
+            className="z-0" 
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          
+          <Cta11Demo />
+        </div>
+      </section>
+
+      {/* Footer */}
+      <FooterDemo />
+    </main>
   );
 }
